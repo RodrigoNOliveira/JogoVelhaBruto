@@ -18,6 +18,7 @@ public class Tabuleiro {
     }
 
     public void mostraTabu() {
+      System.out.println( );
         System.out.println("-------------");
         for (int i = 0; i < tabu.length; i++) {
             for (int j = 0; j < tabu.length; j++) {
@@ -26,6 +27,7 @@ public class Tabuleiro {
             System.out.println("|");
             System.out.println("-------------");
         }
+        System.out.println( );
     }
 
     public String getPsc(int coluna, int linha) {

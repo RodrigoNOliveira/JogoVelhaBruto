@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Humano extends Jogador {
     private Scanner scanner= new Scanner(System.in);
@@ -7,7 +8,7 @@ public class Humano extends Jogador {
         super(jogador);
         this.jogador = jogador;
 
-        System.out.println("Jogador HUMANO iniciado");
+        System.out.println("\nJogador HUMANO iniciado");
     }
 
     @Override
@@ -28,20 +29,31 @@ public class Humano extends Jogador {
 
     @Override
     public void Escolha(Tabuleiro tabu) {
-        do {
-            do {
-                System.out.println("Digite a casa desejada");
+        
+          do {
+            do {try {
+                System.out.print("Digite a casa desejada: ");
+                 
                 escolha = scanner.nextInt();
                 if (escolha < 1 || escolha > 9) {
-                    System.out.println("Escolha invalida.");
+
+                    System.out.println("\nEscolha invalida.\n");
+                }
+                }
+                catch (InputMismatchException e){
+                  System.out.println("\nOpção inválida! Digite um dos valores apresentados na tela!!!\n");
+  
+                  scanner.nextLine();
                 }
             } while (escolha < 1 || escolha > 9);
+          
+            
 
             if (!checaPsc(escolha, linha, coluna, tabu)) {
-                System.out.println("Esse local ja foi escolhido");
+                System.out.println("\nEsse local ja foi escolhido\n");
             }
         } while (!checaPsc(escolha, linha, coluna, tabu));
 
-    }
-
+    
+}
 }

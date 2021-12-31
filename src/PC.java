@@ -7,7 +7,7 @@ public class PC extends Jogador{
     public PC(int jogador){
         super(jogador);
         this.jogador = jogador;
-        System.out.println("Jogador COMPUTADOR iniciado");
+        System.out.println("\nJogador COMPUTADOR iniciado");
     }
 
     @Override
@@ -31,8 +31,7 @@ public class PC extends Jogador{
     @Override
     public void Escolha(Tabuleiro tabu) {
         do {
-            do {    
-                System.out.println("Digite a casa desejada");
+            do {   
                 escolha = gerador.nextInt(9) + 1;
                 if (escolha < 1 || escolha > 9){
                     System.out.println("Escolha invalida.");
@@ -51,9 +50,7 @@ public class PC extends Jogador{
                 coluna = escolha - 7;
 
             }
-            if (!checaPsc(escolha, linha, coluna, tabu)) {
-                System.out.println("Esse local ja foi escolhido");
-            }
+            
         } while (!checaPsc(escolha, linha, coluna, tabu));
         
         
@@ -61,5 +58,3 @@ public class PC extends Jogador{
         }
         
     }
-    
-
